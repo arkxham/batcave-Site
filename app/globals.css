@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", sans-serif;
+  overflow: hidden;
+}
+
+/* Text shadow utilities */
+.text-shadow-md {
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.text-shadow-lg {
+  text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* Volume slider thumb */
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Music player volume slider thumb */
+.player-controls .volume-slider::-webkit-slider-thumb {
+  width: 12px;
+  height: 12px;
+}
+
+/* Add these styles to ensure proper z-index management and positioning */
+
+/* Add these styles at the end of the file */
+.window,
+.settings-window,
+.music-player {
+  position: absolute;
+  z-index: 100;
+  transition: box-shadow 0.2s ease;
+}
+
+.window:active,
+.settings-window:active,
+.music-player:active {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+}
+
+/* Ensure the header is properly styled for dragging */
+.window-header {
+  user-select: none;
+}
